@@ -7,8 +7,8 @@ package rmi.dp.facroty.client;
 
 import java.rmi.Naming;
 import java.util.logging.Logger;
-import rmi.dp.facroty.Factory;
-import rmi.dp.facroty.Hello;
+import rmi.dp.factory.Factory;
+import rmi.dp.factory.Hello;
 
 /**
  *
@@ -23,12 +23,11 @@ public class Client {
      * @param ARGS
      */
     public static void main(String ARGS[]) {
-        String[] args={ "localhost","Domenico","france"};
+        String[] args = {"localhost", "Domenico", "italy"};
         try {
             Factory fact = (Factory) Naming.lookup("rmi://" + args[0] + "/FactoryRemoteHello");
             Hello hello = (Hello) fact.createHello(args[2]);//Nazionalità
-            System.out.println(hello.sayHello(args[1]));//nome
-            //System.exit(0);
+            System.out.println(hello.sayHello(args[1]));//nome*/
         } catch (Exception e) {
             logger.severe("problemi con l'oggetto remoto" + e.getMessage());
             e.printStackTrace();
