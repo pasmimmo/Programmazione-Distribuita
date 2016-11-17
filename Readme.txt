@@ -1,7 +1,7 @@
-Benvenuti, sono Domenico Pascucci, e questa Ë la directory dove troverete tutti i sorgenti 
+Benvenuti, sono Domenico Pascucci, e questa √® la directory dove troverete tutti i sorgenti 
 dei progetti svolti durante il corso di programmazione distribuita 
 tenuto dal prof. Vittorio Scarano nell'anno accademico 2016/2017 
-presso l'Universit‡ Degli Studi di Salerno, gruppo matricole pari.
+presso l'Universit√† Degli Studi di Salerno, gruppo matricole pari.
 
 
 Affinche i programmi "girino" dovete settare le policy della JVM, 
@@ -17,6 +17,10 @@ Riporto di seguito la legenda delle sigle utilizzate per i nomi
 [Socket]	Socket.
 [IIOP]		RMI su protocollo Orb di CORBA.
 [Thread]	Multi-Threading: esecuzioni concorrenti 
+#########################################################################################
+
+Ringrazio il Prof. Vittorio Scarano per avermi dato l'autorizzazione ad usare/distribuire i sorgenti contenuti nel suo libro:
+http://ilmiolibro.kataweb.it/libro/informatica-e-internet/36104/programmazione-con-oggetti-distribuiti-java-rmi-2/
 
 
 
