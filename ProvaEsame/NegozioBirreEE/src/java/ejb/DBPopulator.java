@@ -13,20 +13,23 @@ import javax.ejb.Startup;
 import javax.inject.Inject;
 
 /**
- * Enterprise Java Bean che aspetta un messaggio, anche chiamato MessageDriven Bean
- * quando un messaggio viene ricevuto su 
+ * DataBase Populator che scrive 3 entità nel Database dopo il deploy (annotazione @Startup), 
+ * si tratta di una classe singleton(@Singleton) di cui l'ApplicationContainer(payara) non deve creare
+ * istanze multiple per evitare problemi di interferenza/consistenza dei dati.
  * @author pasmimmo
  */
 @Singleton @Startup
 @DataSourceDefinition(name = "jdbc/EsameDS", className = "org.apache.derby.jdbc.EmbeddeDataSource",
         databaseName = "EsameDB",user = "app", password = "app")
-// @updated Aggiunti i parametri del DataSource
 public class DBPopulator {
+    /*Qua verrà iniettato, mediante CDI, un oggetto NegozioEJB, che tra i vari compiti,
+    ha la gestione dei metodi CRUD mediante uso di EntityManager*/
     @Inject
     NegozioEJB ejb;
+    //InjectionPoint di un logger custom di cui ho creato un qualificatore @LoggetInjectable
     @Inject @LoggerInjectable
     private Logger logger;
-    
+    //Metodo che viene eseguito dopo l'instanziazione del bean da parte dell'ApplicationContainer (Payara)
     @PostConstruct
     public void populate(){
         Negozio n1,n2,n3;
@@ -37,6 +40,5 @@ public class DBPopulator {
         ejb.createNegozio(n2);
         ejb.createNegozio(n3);
         logger.info(logger.getName()+"DB Popolato");
-        //@updated Aggiunta solo una stampa per informare della popolazione del DB
     }
 }

@@ -10,7 +10,8 @@ import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
 /**
- *
+ * Classe che osserva un evento e quando accade effettua delle operazioni
+ * come la stampa nel terminale dell'AppContainer della modifica
  * @author pasmimmo
  */
 public class Observer{

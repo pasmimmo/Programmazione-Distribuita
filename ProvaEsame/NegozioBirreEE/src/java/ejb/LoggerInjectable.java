@@ -15,7 +15,15 @@ import java.lang.annotation.Target;
 import javax.inject.Qualifier;
 
 /**
- *
+ * Qualificatore, un nome che viene legato alla classe che lo "implementa", per il logger
+ * il concetto di qualificatore si basa sul concetto di 
+ * ->StrongTyping
+ * mentre il codice viene compilato, 
+ * viene effettuata la verifica dell'esistenza dello stesso e di eventuali errori di battitura
+ * ->LooseCoupling (basso accoppiamento)
+ * ovvero se vogliamo sostituire la classe che "implementa"  il qualificatore, 
+ * ci basta cambiare il codice solo in quella classe
+ *  
  * @author pasmimmo
  */
 @Qualifier

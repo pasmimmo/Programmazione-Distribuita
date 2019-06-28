@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ejb/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ejb/">
+
+<xs:element name="cambio_direttore" type="tns:cambio_direttore"/>
+
+<xs:element name="cambio_direttoreResponse" type="tns:cambio_direttoreResponse"/>
+
+<xs:element name="createNegozio" type="tns:createNegozio"/>
+
+<xs:element name="createNegozioResponse" type="tns:createNegozioResponse"/>
+
+<xs:element name="printAll" type="tns:printAll"/>
+
+<xs:element name="printAllResponse" type="tns:printAllResponse"/>
+
+<xs:element name="printById" type="tns:printById"/>
+
+<xs:element name="printByIdResponse" type="tns:printByIdResponse"/>
+
+<xs:element name="printByName" type="tns:printByName"/>
+
+<xs:element name="printByNameResponse" type="tns:printByNameResponse"/>
+
+<xs:element name="printByRegion" type="tns:printByRegion"/>
+
+<xs:element name="printByRegionResponse" type="tns:printByRegionResponse"/>
+
+<xs:element name="printDrunkPeopleShops" type="tns:printDrunkPeopleShops"/>
+
+<xs:element name="printDrunkPeopleShopsResponse" type="tns:printDrunkPeopleShopsResponse"/>
+
+<xs:element name="removeNegozio" type="tns:removeNegozio"/>
+
+<xs:element name="removeNegozioResponse" type="tns:removeNegozioResponse"/>
+
+<xs:element name="updateNegozio" type="tns:updateNegozio"/>
+
+<xs:element name="updateNegozioResponse" type="tns:updateNegozioResponse"/>
+
+<xs:complexType name="printAll">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="printAllResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:negozio" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="negozio">
+<xs:sequence>
+<xs:element name="birra" type="xs:double" minOccurs="0"/>
+<xs:element name="birraAnalcolica" type="xs:double" minOccurs="0"/>
+<xs:element name="citta" type="xs:string" minOccurs="0"/>
+<xs:element name="direttore" type="xs:string" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+<xs:element name="provincia" type="xs:string" minOccurs="0"/>
+<xs:element name="regione" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="printByName">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="printByNameResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:negozio" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cambio_direttore">
+<xs:sequence>
+<xs:element name="old_director_name" type="xs:string" minOccurs="0"/>
+<xs:element name="new_director_name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cambio_direttoreResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createNegozio">
+<xs:sequence>
+<xs:element name="arg0" type="tns:negozio" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createNegozioResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="removeNegozio">
+<xs:sequence>
+<xs:element name="arg0" type="tns:negozio" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeNegozioResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="updateNegozio">
+<xs:sequence>
+<xs:element name="arg0" type="tns:negozio" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateNegozioResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="printDrunkPeopleShops">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="printDrunkPeopleShopsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:negozio" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="printById">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="printByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:negozio" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="printByRegion">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="printByRegionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:negozio" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

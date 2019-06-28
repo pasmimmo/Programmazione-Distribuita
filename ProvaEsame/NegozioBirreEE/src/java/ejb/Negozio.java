@@ -13,11 +13,17 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 /**
- *
+ * PoJo (classe java) che con l'aggiunta di @Entity diventa un Entity che sarà quindi posta nell'unità di persistenza,
+ * mappata sul Database tramite (ORM) e gestita da un EntityManger (a carico del container) il tutto
+ * sftuttando le API di Java Persistence Api (JPA)
+ * 
  * @author pasmimmo
  */
 @Entity
 @NamedQueries({
+    /*Definizione di NamedQueries, queri statiche che vengono create a tempo di compilazione,
+    molto efficienti rispetto alle DynamicQueries (create a runtime), inoltre va notato l'uso del JPQL,
+    un linguaggio SQL-Like che effettua query ragionando su oggetti e non tabelle*/
     @NamedQuery(name = "Negiozio.PrintByRegion", query = "SELECT n FROM Negozio n WHERE n.regione = :regione"),
     @NamedQuery(name = "Negozio.PrintAll", query = "SELECT n FROM Negozio n"),
     @NamedQuery(name = "Negozio.PrintById", query = "SELECT n FROM Negozio n WHERE n.id = :id"),
@@ -28,22 +34,23 @@ import javax.persistence.NamedQuery;
 public class Negozio implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue
+    /*Annotazione per dire che il campo è la chiave primaria @Id e i valori sono autogenerati dal container @GeneratedValue*/
+    @Id @GeneratedValue
     private Long id;
+    /*a seguire le variabili del nostro oggetto che mediante ORM verranno mappate come colonne nel DB*/
     private Double birra,birraAnalcolica;
     private String citta,provincia,regione,nome,direttore;
-    //@update sistemato solo il nome delle variabili per dare una lettura migliore
     public Negozio(){/*costruttore vuoto*/}
     /**
+     * Costruttore dell'oggetto negozio, da notare la mancanza di Id, la cui creazione la demandiamo alla EntityManager
      * 
-     * @param nome
-     * @param direttore
-     * @param birraAnalcolica
-     * @param birra
-     * @param citta
-     * @param provincia
-     * @param regione 
+     * @param nome Nome del negozio
+     * @param direttore Nome del direttore del negozio
+     * @param birraAnalcolica Q.ta di birra analcolica venduta
+     * @param birra Q.ta di birra alcolica venduta
+     * @param citta Città in cui si trova il negozio
+     * @param provincia Provincia del negozio
+     * @param regione Regione del negozio
      */
     public Negozio(String nome, String direttore, Double birra, Double birraAnalcolica, String citta, String provincia, String regione){
         this.birra = birra;

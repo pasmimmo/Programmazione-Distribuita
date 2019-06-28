@@ -10,11 +10,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- *
+ * Producer di EntityManger, che va a scrivere oggetti nel DB,
+ *  per la gestione dell'unità di persistenza "EsamePU"
+
  * @author pasmimmo
  */
 public class EntityManagerProducer {
-    //@updated Cambiato il valore di PersistenceContext e il nome della entityManager
     @PersistenceContext(unitName = "EsamePU")
     @Produces
     EntityManager entityManager;

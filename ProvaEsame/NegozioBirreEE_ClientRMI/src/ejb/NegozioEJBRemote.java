@@ -9,7 +9,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 /**
- *
+ * Interfaccia usata per l'invocazione dei metodi remoti
  * @author pasmimmo
  */
 @Remote

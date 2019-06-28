@@ -21,7 +21,15 @@ import javax.persistence.NonUniqueResultException;
 import javax.persistence.TypedQuery;
 
 /**
- *
+ * Enterprise Java Bean, che si occupa di: 
+ * fornire i metodi a invocazione remota (RMI) dell interfaccia NegozioEJBRemote
+ * fornire metodi CRUD all'interno del container in meniera centralizzata
+ * fornire un ServizioWeb (SOAP WebServices) per il cambio del nome del direttore di un negozio
+ * 
+ * Il Bean gira su specifica EJB 3.1, senza avere uno stato (@stateless) e quindi 
+ * di default l'ApplicationContainer (payara) ne istanzia una molteplicità creandone una pool pronta all'uso
+ * la quantita di oggetti avria in base a criteri come RAM, oggetti disponibili etc
+ * 
  * @author pasmimmo
  */
 @Stateless @LocalBean @WebService(name = "NegozioWS")
@@ -30,8 +38,11 @@ public class NegozioEJB implements NegozioEJBRemote{
     Logger logger;
     @Inject
     EntityManager entityManager;
+    /*In questo punto viene iniettato un evento per la gestione dell'asincronia all'interno del container,
+    nulla più di un listener */
     @Inject
     Event<Negozio> evento;
+
     /* metodi CRUD*/
     public void createNegozio(Negozio negozio){
         entityManager.persist(negozio);
@@ -78,9 +89,12 @@ public class NegozioEJB implements NegozioEJBRemote{
         query.setParameter("nome", nomeNegozio);
         return query.getSingleResult();
     }
-    /*Remote Method */
+    /*Remote Methods */
     /**
      * Metodo Remoto per la ricerca di negozi in una regione data in input
+     * da notare che questo metodo viene intercettato da uno (o più) interceptor
+     * che sono annotato con @LogMethod
+     * 
      * @param regione di ricerca
      * @return lista negozi
      */
@@ -93,7 +107,7 @@ public class NegozioEJB implements NegozioEJBRemote{
     /**
      * Metodo Remoto per la ricerca di un regozio dando in input la sua id
      * @param id chiave univoca che identifica il negozio nel DB    
-     * @return 
+     * @return  lista di negozi trovati con quella ID
      */
     @Override
     public List<Negozio> printById(Long id){
@@ -103,7 +117,7 @@ public class NegozioEJB implements NegozioEJBRemote{
     }
     /**
      * Metodo Remoto per la stampa di tutti i Negozi nel Database
-     * @return 
+     * @return Lista di negozi nel Database
      */
     @Override
     public List<Negozio> printAll() {
@@ -113,7 +127,7 @@ public class NegozioEJB implements NegozioEJBRemote{
     /**
      * Metodo Remoto per la stampa di tutti i negozi che hanno un fatturato di
      * birre alcoliche maggiore delle birre analcoliche
-     * @return 
+     * @return Lista di risultati
      */
 
     @Override
@@ -137,6 +151,8 @@ public class NegozioEJB implements NegozioEJBRemote{
         Negozio n= query.getSingleResult();
         n.setDirettore(newName);
         entityManager.merge(n);
+        /*in questo pinto a mezzo del metodo fire() viene avvisato l'osservatore 
+        e gli viene passato l'oggetto, negozio in questo caso*/
         evento.fire(n);
         } catch(NoResultException noResult){
             logger.warning(logger.getName()+"Nome non trovato durante la sostituzione del direttore");
@@ -146,8 +162,5 @@ public class NegozioEJB implements NegozioEJBRemote{
             return "non puoi aggiornare questo direttore\n ci sono più referenze";
         }
         return "Direttore Aggiornato";
-        //@updated aggiunta la gestione degli eventi e ovviamente rimosso il secondo interceptor e gli exclude per fisse mie
     }
-    
-    
 }

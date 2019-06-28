@@ -25,12 +25,10 @@ public class Main {
     public static void main(String[] args) throws NamingException {
         Context ctx = new InitialContext();
         NegozioEJBRemote ejb = (NegozioEJBRemote) ctx.lookup("java:global/NegozioBirreEE/NegozioEJB!ejb.NegozioEJBRemote");
-        //@updated sistemato il lookup
         System.out.println("Stampiamo tutti i negozi di una regione:\n\n");
         System.out.println("Inserisci una regione: ");
         Scanner input = new Scanner(System.in);
         String regione = input.nextLine();
-        //@updated avevo sbagliato lo scanner in, disagio
         List<Negozio> risultati = ejb.printByRegion(regione);
         for (Negozio temp:risultati)
         {
