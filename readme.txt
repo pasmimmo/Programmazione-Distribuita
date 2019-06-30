@@ -14,4 +14,4 @@ https://www.amazon.it/Beginning-Java-EE-Antonio-Goncalves/dp/143024626X
 La Parte di RMI è un vecchio progetto i cui sorgenti risalgono al 2016[Dovrebbero funzionare]
 La Parte di Java EE è stata testata e scritta su netbeans ee 8.2 e payara 4.1.2.187 come appContainer
 potete seguire il mio blog e magari suggerire qualche miglioria all'indirizzo
-pasmimmo.altervista.org
+http://www.pasmimmo.altervista.org
