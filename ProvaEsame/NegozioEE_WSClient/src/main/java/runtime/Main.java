@@ -6,12 +6,6 @@
 package runtime;
 
 import java.util.Scanner;
-import javax.xml.namespace.QName;
-import javax.xml.transform.Source;
-import javax.xml.ws.Dispatch;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.ws.Service;
-import java.io.StringReader;
 
 /**
  *
@@ -33,8 +27,8 @@ public class Main {
             ejb.NegozioEJBService service = new ejb.NegozioEJBService();
             ejb.NegozioWS port = service.getNegozioWSPort();
             // TODO initialize WS operation arguments here
-            java.lang.String oldDirectorName = "";
-            java.lang.String newDirectorName = "";
+            java.lang.String oldDirectorName = oldName;
+            java.lang.String newDirectorName = newName;
             // TODO process result here
             java.lang.String result = port.cambioDirettore(oldDirectorName, newDirectorName);
             System.out.println("Result = " + result);

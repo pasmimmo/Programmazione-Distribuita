@@ -5,6 +5,7 @@
  */
 package runtime;
 
+import java.util.Scanner;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.jms.JMSContext;
@@ -26,8 +27,11 @@ public class TopicClient {
         Context context = new InitialContext();
         ConnectionFactory connectionFactory = (ConnectionFactory) context.lookup("jms/javaee7/ConnectionFactory");
         Destination topic1 = (Destination) context.lookup("jms/javaee7/Topic1");
+        System.out.println("Benvenuto, inserisci la quantità da incrementare per il negozio 'beviBene': ");
+        Scanner in = new Scanner(System.in);
+        Double qta=in.nextDouble();
         try (JMSContext jmsContext = connectionFactory.createContext()) {
-            jmsContext.createProducer().setProperty("nomeNegozio", "BeviBene").send(topic1, 50d);
+            jmsContext.createProducer().setProperty("nomeNegozio", "BeviBene").send(topic1, qta);
         }
 
     }
