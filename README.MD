@@ -34,13 +34,17 @@ tenuto dal prof. **[Vittorio Scarano](https://docenti.unisa.it/001717/home)**  d
         Ubuntu 18.06 LTS
         Oracle JDK 8.121
         Netbeans ee 8.2 
-        Payara 4.1.2.187 come appContainer (è un AppServer basato su GlassFish vedi sezione note)
+        Payara 4.1.2.187 come Application Server (è un AppServer basato su GlassFish vedi sezione note)
+* ### Prova Esame
+    Contiene il progetto consegnato all'esame e la sua traccia, un mini progetto JEE7 funzionante, con un paio di aggiunte quale il client in python per l'accesso al webservices e qualche cosa sistemata a posteriori
 ## Autori:
 * [**Domenico Pascucci**](https://github.com/pasmimmo) - *Modifica e adattamento dei codici originari*
-* [Vittorio Scarano](https://docenti.unisa.it/001717/home) - *autore originario per la parte di JRMI*
+* [Vittorio Scarano](https://github.com/vitsca) - *autore originario per la parte di JRMI*
 * [Antonio Goncalves](https://github.com/agoncal) - *autore originario per la parte di JEE7*
 ## Note:
 * [Payara](https://www.payara.fish/), è un AppServer basato su GlassFish e perfettamente compatibile con quest'ultimo. Dato lo stato di abandonware di GlassFish (con innumerevoli bug) sono stato costretto e felice di ripiegara su Payara in quanto la sua community continua lo sviluppo e il debug di questo AppServer di riferimento per JavaEE
 * JDK e cambio Policy Oracle, vi consiglio di seguire [il mio blog](http://www.pasmimmo.altervista.org), dove ho riportato un po' di guide per far funzionare il tutto.
+* Spero questa repo possa aiutare i futuri studenti che si approcceranno allo studio di Sistemi Distribuiti, per qualunque suggerimento e/o miglioria sono a vostra completa disposizione, **BUON DEPLOY!**
 ## Licenza:
-Questo progetto è concesso in licenza con la licenza GNU GPL v3 - vedere il file LICENSE.md per i dettagli.
+I sorgenti originari degli autori detengono il loro Copyright (Non indicato), per il resto
+* Questo progetto è concesso in licenza con la licenza GNU GPL v3 - vedere il file LICENSE.md per i dettagli.
