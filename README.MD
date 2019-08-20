@@ -47,4 +47,4 @@ tenuto dal prof. **[Vittorio Scarano](https://docenti.unisa.it/001717/home)**  d
 * Spero questa repo possa aiutare i futuri studenti che si approcceranno allo studio di Sistemi Distribuiti, per qualunque suggerimento e/o miglioria sono a vostra completa disposizione, **BUON DEPLOY!**
 ## Licenza:
 I sorgenti originari degli autori detengono il loro Copyright (Non indicato), per il resto
-* Questo progetto è concesso in licenza con la licenza GNU GPL v3 - vedere il file LICENSE.md per i dettagli.
+* Questo progetto è concesso in licenza con la licenza GNU GPL v3 - vedere il file [LICENSE.md](/LICENSE.md) per i dettagli.
